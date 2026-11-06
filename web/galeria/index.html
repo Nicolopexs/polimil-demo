@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0">
+    <meta name="csrf-token" content="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7">
     <title>Galería web · POLIMIL</title>
     <link rel="icon" href="/polimil-demo/img/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/polimil-demo/css/app.css">
@@ -51,7 +51,7 @@
                 <span class="user-av">A</span>
                 <span><b>ADMINISTRADOR</b><small>Administrador</small></span>
             </div>
-            <form method="POST" action="/polimil-demo/logout/"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off">                <button class="btn-salir"><svg class="nav-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 16l-4-4 4-4M6 12h10"/></svg>
+            <form method="POST" action="/polimil-demo/logout/"><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off">                <button class="btn-salir"><svg class="nav-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3"/><path d="M10 16l-4-4 4-4M6 12h10"/></svg>
  Cerrar sesión</button>
             </form>
         </div>
@@ -60,312 +60,528 @@
     <main class="main">
                 
         <div class="top">
-    <h1 class="grow">Galería de la página web</h1>
-    <a class="btn sec" href="/polimil-demo/galeria/" target="_blank">Ver galería pública</a>
+    <div class="grow">
+        <h1>Galería de la página web</h1>
+        <p class="muted" style="margin:4px 0 0;font-size:14px">Las fotos y videos que se ven en la página pública de POLIMIL.</p>
+    </div>
+    <a class="btn sec" href="/polimil-demo/galeria/" target="_blank"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg> Ver galería pública</a>
 </div>
 
-<form class="card" method="POST" action="/polimil-demo/web/galeria/" enctype="multipart/form-data" id="frm-subir">
-    <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off">    <h2><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Agregar a la galería</h2>
-    <div class="pago-opciones" style="margin-bottom:14px">
-                    <label class="pago-op"><input type="radio" name="tipo" value="FOTO" checked><span><b>Fotos</b><small>Puedes elegir varias a la vez</small></span></label>
-                    <label class="pago-op"><input type="radio" name="tipo" value="VIDEO" ><span><b>Video (archivo)</b><small>MP4, máximo 100 MB</small></span></label>
-                    <label class="pago-op"><input type="radio" name="tipo" value="YOUTUBE" ><span><b>Video de YouTube</b><small>Pega el enlace del video</small></span></label>
-                    <label class="pago-op"><input type="radio" name="tipo" value="INSTAGRAM" ><span><b>Reel de Instagram</b><small>Pega el enlace del reel</small></span></label>
+<div class="g-stats">
+    <div><b>16</b><span>en total</span></div>
+    <div><b>11</b><span>fotos</span></div>
+    <div><b>5</b><span>videos</span></div>
+    <div><b class="ok">16</b><span>visibles en la web</span></div>
+</div>
+
+<form class="card g-subir" method="POST" action="/polimil-demo/web/galeria/" enctype="multipart/form-data" id="frm-subir" onsubmit="this.querySelector('[type=submit]').disabled = true">
+    <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off">    <h2><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg> Agregar a la galería</h2>
+
+    <p class="g-paso">1. ¿Qué vas a subir?</p>
+    <div class="g-tipos" role="radiogroup">
+                    <label class="g-tipo-op">
+                <input type="radio" name="tipo" value="FOTO" checked>
+                <span class="g-tipo-ic"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg></span>
+                <b>Fotos</b><small>Puedes elegir varias a la vez</small>
+            </label>
+                    <label class="g-tipo-op">
+                <input type="radio" name="tipo" value="VIDEO" >
+                <span class="g-tipo-ic"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg></span>
+                <b>Video</b><small>Archivo MP4, máximo 100 MB</small>
+            </label>
+                    <label class="g-tipo-op">
+                <input type="radio" name="tipo" value="YOUTUBE" >
+                <span class="g-tipo-ic"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m10 8.5 5.5 3.5-5.5 3.5z"/></svg></span>
+                <b>YouTube</b><small>Pega el enlace del video</small>
+            </label>
+                    <label class="g-tipo-op">
+                <input type="radio" name="tipo" value="INSTAGRAM" >
+                <span class="g-tipo-ic"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2"/><path d="M11 18h2"/></svg></span>
+                <b>Reel de Instagram</b><small>Pega el enlace del reel</small>
+            </label>
             </div>
-    <div class="grid">
-        <div class="c6" id="g-archivos"><label>Archivos</label><input type="file" name="archivos[]" id="g-input" accept="image/*" multiple></div>
-        <div class="c6" id="g-url" hidden><label id="g-url-lbl">Enlace</label><input type="text" name="url" id="g-url-in" value=""></div>
-        <div class="c3"><label>Título (opcional)</label><input type="text" name="titulo" value=""></div>
-        <div class="c3"><label>Categoría</label><select name="categoria"><option>GENERAL</option><option>PORTADA</option><option>TESTIMONIOS</option><option>ACADÉMICO</option><option>ENTRENAMIENTO FÍSICO</option><option>EVENTOS</option><option>GRADUACIONES</option><option>INSTALACIONES</option></select></div>
+
+    <p class="g-paso">2. Elige el archivo</p>
+    <label class="g-drop" id="g-archivos">
+        <input type="file" name="archivos[]" id="g-input" accept="image/*" multiple>
+        <span class="g-drop-ic"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></span>
+        <b id="g-drop-txt">Haz clic o arrastra aquí tus fotos</b>
+        <small id="g-drop-sub">JPG o PNG · puedes elegir varias</small>
+    </label>
+    <div id="g-url" hidden>
+        <label id="g-url-lbl" for="g-url-in">Enlace</label>
+        <div class="g-url-in"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg><input type="text" name="url" id="g-url-in" value=""></div>
     </div>
-    <p class="muted" style="font-size:13px;margin:10px 0 0"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg> Categoría <b>PORTADA</b> + video MP4 = se reproduce de fondo en la portada de la web (sin sonido). Los demás videos salen en "POLIMIL en acción" y en la Galería.</p>
-    <button class="btn" style="margin-top:14px">Subir</button>
+
+    <p class="g-paso">3. Detalles</p>
+    <div class="grid">
+        <div class="c8"><label>Título <span class="muted">(opcional)</span></label><input type="text" name="titulo" value="" placeholder="Ej.: Cadetes en el entrenamiento físico"></div>
+        <div class="c4"><label>Categoría</label><select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select></div>
+    </div>
+
+    <div class="g-pie">
+        <p class="g-tip"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg> <span>Un <b>video MP4</b> con categoría <b>PORTADA</b> se reproduce de fondo en el inicio de la web (sin sonido). Los demás videos salen en "POLIMIL en acción" y en la Galería.</span></p>
+        <button type="submit" class="btn lg"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg> Subir a la galería</button>
+    </div>
 </form>
 
-<div class="g-admin">
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/1/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/grupo.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Cadetes POLIMIL con sus instructores" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option selected>EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="0" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-1">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-1" method="POST" action="/polimil-demo/web/galeria/1/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/12/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <video src="/polimil-demo/web/video/reel-1.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>            </div>
-            <input type="text" name="titulo" value="Así se vive POLIMIL" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="1" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-12">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-12" method="POST" action="/polimil-demo/web/galeria/12/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/2/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/certificaciones.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Entrega de certificados" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option selected>GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="1" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-2">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-2" method="POST" action="/polimil-demo/web/galeria/2/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/13/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <video src="/polimil-demo/web/video/reel-4.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>            </div>
-            <input type="text" name="titulo" value="Natación: prepárate para el agua" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option selected>ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="2" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-13">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-13" method="POST" action="/polimil-demo/web/galeria/13/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/3/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/academica.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Clases de preparación académica" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="2" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-3">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-3" method="POST" action="/polimil-demo/web/galeria/3/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/14/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <video src="/polimil-demo/web/video/reel-3.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>            </div>
-            <input type="text" name="titulo" value="¿Lista para la Policía?" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="3" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-14">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-14" method="POST" action="/polimil-demo/web/galeria/14/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/4/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/fisica.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Entrenamiento físico" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option selected>ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="3" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-4">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-4" method="POST" action="/polimil-demo/web/galeria/4/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/15/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <video src="/polimil-demo/web/video/reel-2.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>            </div>
-            <input type="text" name="titulo" value="Aspirante al Ejército" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option selected>ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="4" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-15">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-15" method="POST" action="/polimil-demo/web/galeria/15/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/5/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/cadetas.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Nuestras cadetas" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="4" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-5">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-5" method="POST" action="/polimil-demo/web/galeria/5/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/16/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <video src="/polimil-demo/web/video/reel-5.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>            </div>
-            <input type="text" name="titulo" value="Evaluación médica" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="5" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-16">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-16" method="POST" action="/polimil-demo/web/galeria/16/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/6/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/psicologica.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Preparación psicológica" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="5" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-6">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-6" method="POST" action="/polimil-demo/web/galeria/6/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/7/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/entrevista.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Simulación de entrevista personal" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="6" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-7">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-7" method="POST" action="/polimil-demo/web/galeria/7/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/8/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/medica.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Asesoría médica" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="7" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-8">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-8" method="POST" action="/polimil-demo/web/galeria/8/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/9/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/confianza.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Pruebas integrales de confianza" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="8" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-9">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-9" method="POST" action="/polimil-demo/web/galeria/9/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/10/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/internado.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Instalaciones del internado" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option selected>INSTALACIONES</option></select>
-                <input type="number" name="orden" value="9" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-10">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-10" method="POST" action="/polimil-demo/web/galeria/10/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
-            <form class="card g-item " method="POST" action="/polimil-demo/web/galeria/11/">
-            <input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
-                <img src="/polimil-demo/web/img/hero-cadetes.jpg" alt="" loading="lazy">
-                            </div>
-            <input type="text" name="titulo" value="Fuerzas Armadas y Policía Nacional" placeholder="Título">
-            <div style="display:flex;gap:6px">
-                <select name="categoria"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
-                <input type="number" name="orden" value="10" min="0" title="Orden (menor = primero)" style="width:72px">
-            </div>
-            <input type="hidden" name="publicado" value="0">
-            <label class="chk-line"><input type="checkbox" name="publicado" value="1" checked> Visible en la web</label>
-            <div style="display:flex;gap:6px">
-                <button class="btn sm">Guardar</button>
-                <button class="btn sm danger" form="borrar-11">Eliminar</button>
-            </div>
-        </form>
-        <form id="borrar-11" method="POST" action="/polimil-demo/web/galeria/11/" onsubmit="return confirm('¿Eliminar de la galería?')"><input type="hidden" name="_token" value="1LXfDeUS4rjjaTGAFZQsKMGmSaxiaqQGDMf8hpr0" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+<div class="g-barra">
+    <h2 style="margin:0">Lo que está en la galería</h2>
+    <div class="g-filtros" role="tablist">
+        <button type="button" class="on" data-f="todo">Todo <span>16</span></button>
+        <button type="button" data-f="foto">Fotos <span>11</span></button>
+        <button type="button" data-f="video">Videos <span>5</span></button>
+        <button type="button" data-f="oculto">Ocultos <span>0</span></button>
     </div>
+</div>
+
+<div class="g-admin">
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/1/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/grupo.jpg" alt="Cadetes POLIMIL con sus instructores" loading="lazy">
+                                <span class="g-cat">EVENTOS</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Cadetes POLIMIL con sus instructores" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option selected>EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="0" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-1" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="video" method="POST" action="/polimil-demo/web/galeria/12/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <video src="/polimil-demo/web/video/reel-1.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>                <span class="g-cat">GENERAL</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Así se vive POLIMIL" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="1" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-12" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/2/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/certificaciones.jpg" alt="Entrega de certificados" loading="lazy">
+                                <span class="g-cat">GRADUACIONES</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Entrega de certificados" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option selected>GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="1" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-2" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="video" method="POST" action="/polimil-demo/web/galeria/13/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <video src="/polimil-demo/web/video/reel-4.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>                <span class="g-cat">ENTRENAMIENTO FÍSICO</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Natación: prepárate para el agua" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option selected>ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="2" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-13" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/3/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/academica.jpg" alt="Clases de preparación académica" loading="lazy">
+                                <span class="g-cat">ACADÉMICO</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Clases de preparación académica" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="2" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-3" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="video" method="POST" action="/polimil-demo/web/galeria/14/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <video src="/polimil-demo/web/video/reel-3.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>                <span class="g-cat">ACADÉMICO</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="¿Lista para la Policía?" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="3" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-14" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/4/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/fisica.jpg" alt="Entrenamiento físico" loading="lazy">
+                                <span class="g-cat">ENTRENAMIENTO FÍSICO</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Entrenamiento físico" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option selected>ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="3" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-4" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="video" method="POST" action="/polimil-demo/web/galeria/15/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <video src="/polimil-demo/web/video/reel-2.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>                <span class="g-cat">ENTRENAMIENTO FÍSICO</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Aspirante al Ejército" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option selected>ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="4" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-15" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/5/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/cadetas.jpg" alt="Nuestras cadetas" loading="lazy">
+                                <span class="g-cat">GENERAL</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Nuestras cadetas" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="4" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-5" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="video" method="POST" action="/polimil-demo/web/galeria/16/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <video src="/polimil-demo/web/video/reel-5.mp4" preload="metadata" muted></video><span class="g-tipo"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg> Video</span>                <span class="g-cat">GENERAL</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Evaluación médica" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="5" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-16" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/6/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/psicologica.jpg" alt="Preparación psicológica" loading="lazy">
+                                <span class="g-cat">ACADÉMICO</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Preparación psicológica" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="5" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-6" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/7/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/entrevista.jpg" alt="Simulación de entrevista personal" loading="lazy">
+                                <span class="g-cat">ACADÉMICO</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Simulación de entrevista personal" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="6" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-7" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/8/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/medica.jpg" alt="Asesoría médica" loading="lazy">
+                                <span class="g-cat">GENERAL</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Asesoría médica" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="7" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-8" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/9/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/confianza.jpg" alt="Pruebas integrales de confianza" loading="lazy">
+                                <span class="g-cat">ACADÉMICO</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Pruebas integrales de confianza" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option selected>ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="8" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-9" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/10/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/internado.jpg" alt="Instalaciones del internado" loading="lazy">
+                                <span class="g-cat">INSTALACIONES</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Instalaciones del internado" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option >GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option selected>INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="9" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-10" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+            <form class="g-item " data-tipo="foto" method="POST" action="/polimil-demo/web/galeria/11/">
+            <input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="PUT">            <div class="g-media">
+                <img src="/polimil-demo/web/img/hero-cadetes.jpg" alt="Fuerzas Armadas y Policía Nacional" loading="lazy">
+                                <span class="g-cat">GENERAL</span>
+                <span class="g-oculto-tag"><svg class="ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.5 0 10 7 10 7a17 17 0 0 1-3.2 4.2M6.6 6.6A17 17 0 0 0 2 12s3.5 7 10 7a9.6 9.6 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg> Oculto</span>
+            </div>
+            <div class="g-body">
+                <input class="g-titulo" type="text" name="titulo" value="Fuerzas Armadas y Policía Nacional" placeholder="Sin título — escribe uno">
+                <div class="g-fila">
+                    <select name="categoria" aria-label="Categoría"><option selected>GENERAL</option><option >PORTADA</option><option >TESTIMONIOS</option><option >ACADÉMICO</option><option >ENTRENAMIENTO FÍSICO</option><option >EVENTOS</option><option >GRADUACIONES</option><option >INSTALACIONES</option></select>
+                    <label class="g-orden" title="Orden: el número menor sale primero">#<input type="number" name="orden" value="10" min="0" aria-label="Orden"></label>
+                </div>
+                <input type="hidden" name="publicado" value="0">
+                <label class="g-switch">
+                    <input type="checkbox" name="publicado" value="1" checked>
+                    <span class="g-switch-ui"></span>
+                    <span class="g-switch-txt">Visible en la web</span>
+                </label>
+            </div>
+            <div class="g-acciones">
+                <button type="submit" class="btn sm"><svg class="ic" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h11l3 3v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M7 3v5h8V3M7 21v-7h10v7"/></svg> Guardar</button>
+                <button type="submit" class="btn sm g-borrar" form="borrar-11" title="Eliminar de la galería" aria-label="Eliminar"><svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button>
+            </div>
+        </form>
+    </div>
+<p class="muted g-sin" id="g-sin" hidden>No hay elementos en este filtro.</p>
+
+
+    <form id="borrar-1" method="POST" action="/polimil-demo/web/galeria/1/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-12" method="POST" action="/polimil-demo/web/galeria/12/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-2" method="POST" action="/polimil-demo/web/galeria/2/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-13" method="POST" action="/polimil-demo/web/galeria/13/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-3" method="POST" action="/polimil-demo/web/galeria/3/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-14" method="POST" action="/polimil-demo/web/galeria/14/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-4" method="POST" action="/polimil-demo/web/galeria/4/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-15" method="POST" action="/polimil-demo/web/galeria/15/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-5" method="POST" action="/polimil-demo/web/galeria/5/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-16" method="POST" action="/polimil-demo/web/galeria/16/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-6" method="POST" action="/polimil-demo/web/galeria/6/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-7" method="POST" action="/polimil-demo/web/galeria/7/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-8" method="POST" action="/polimil-demo/web/galeria/8/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-9" method="POST" action="/polimil-demo/web/galeria/9/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-10" method="POST" action="/polimil-demo/web/galeria/10/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
+    <form id="borrar-11" method="POST" action="/polimil-demo/web/galeria/11/" onsubmit="return confirm('¿Eliminar de la galería? Esto no se puede deshacer.')" hidden><input type="hidden" name="_token" value="6XNENvFeRbxNmKmXWikioljr753BwJNJ2eA8EjW7" autocomplete="off"> <input type="hidden" name="_method" value="DELETE"></form>
     </main>
 </div>
 <script>
 (() => {
-    const inp = document.getElementById('g-input'), arch = document.getElementById('g-archivos'), url = document.getElementById('g-url');
+    const inp = document.getElementById('g-input'), arch = document.getElementById('g-archivos'), url = document.getElementById('g-url'),
+          txt = document.getElementById('g-drop-txt'), sub = document.getElementById('g-drop-sub');
+    const DROP = {
+        FOTO: ['Haz clic o arrastra aquí tus fotos', 'JPG o PNG · puedes elegir varias'],
+        VIDEO: ['Haz clic o arrastra aquí tu video', 'MP4, WEBM o MOV · máximo 100 MB'],
+    };
     const upd = () => {
         const t = document.querySelector('[name=tipo]:checked').value;
         const enlace = t === 'YOUTUBE' || t === 'INSTAGRAM';
         arch.hidden = enlace; url.hidden = !enlace;
-        document.getElementById('g-url-lbl').textContent = t === 'INSTAGRAM' ? 'Enlace del reel de Instagram' : 'Enlace de YouTube';
+        document.getElementById('g-url-lbl').textContent = t === 'INSTAGRAM' ? 'Enlace del reel de Instagram' : 'Enlace del video de YouTube';
         document.getElementById('g-url-in').placeholder = t === 'INSTAGRAM' ? 'https://www.instagram.com/reel/...' : 'https://www.youtube.com/watch?v=...';
         inp.accept = t === 'VIDEO' ? 'video/mp4,video/webm,video/quicktime' : 'image/*';
         inp.multiple = t === 'FOTO';
+        if (DROP[t] && !inp.files.length) { txt.textContent = DROP[t][0]; sub.textContent = DROP[t][1]; }
     };
-    document.querySelectorAll('[name=tipo]').forEach(r => r.addEventListener('change', upd)); upd();
+    document.querySelectorAll('[name=tipo]').forEach(r => r.addEventListener('change', () => { inp.value = ''; arch.classList.remove('lleno'); upd(); }));
+    upd();
+
+    // Muestra cuántos archivos se eligieron
+    inp.addEventListener('change', () => {
+        const n = inp.files.length;
+        arch.classList.toggle('lleno', n > 0);
+        if (n) { txt.textContent = n === 1 ? inp.files[0].name : n + ' archivos elegidos'; sub.textContent = 'Haz clic para cambiar'; } else upd();
+    });
+    ['dragenter', 'dragover'].forEach(e => arch.addEventListener(e, () => arch.classList.add('sobre')));
+    ['dragleave', 'drop'].forEach(e => arch.addEventListener(e, () => arch.classList.remove('sobre')));
+
+    // El interruptor "Visible" cambia el aspecto de la tarjeta al instante
+    document.querySelectorAll('.g-switch input').forEach(c => c.addEventListener('change', () => c.closest('.g-item').classList.toggle('oculto', !c.checked)));
+
+    // Filtros
+    const sin = document.getElementById('g-sin');
+    document.querySelectorAll('.g-filtros button').forEach(b => b.addEventListener('click', () => {
+        document.querySelectorAll('.g-filtros button').forEach(x => x.classList.toggle('on', x === b));
+        let n = 0;
+        document.querySelectorAll('.g-item').forEach(it => {
+            const f = b.dataset.f;
+            const ver = f === 'todo' || (f === 'oculto' ? it.classList.contains('oculto') : it.dataset.tipo === f);
+            it.hidden = !ver; n += ver;
+        });
+        sin.hidden = n > 0;
+    }));
 })();
 </script>
 
