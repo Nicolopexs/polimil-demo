@@ -1,0 +1,135 @@
+/* ==========================================================================
+   POLIMIL — Hojas A4 para impresión (medidas tomadas del documento original)
+   ========================================================================== */
+:root {
+    --brand: #2a86c5;        /* azul del logo / líneas */
+    --brand-dark: #1f6fa8;   /* textos del pie */
+    --stripe-grey: #c3ccd3;
+    --sub-grey: #8d9aa4;
+    --fill-blue: #2f6db5;    /* datos llenados en el acuerdo */
+    --ink: #222;
+}
+
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+    background: #e9edf1;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* ---------- Barra de herramientas (no se imprime) ---------- */
+.toolbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    padding: 10px 16px; background: #0f2f4d; color: #fff;
+    font: 14px/1.3 "Segoe UI", Arial, sans-serif;
+}
+.toolbar strong { flex: 1; min-width: 200px; }
+.toolbar a, .toolbar button {
+    border: 0; border-radius: 6px; padding: 8px 14px; cursor: pointer;
+    font: 600 14px "Segoe UI", Arial, sans-serif; text-decoration: none;
+    background: #2a86c5; color: #fff;
+}
+.toolbar a.sec { background: #2c4a66; }
+.toolbar .hint { width: 100%; font-size: 12px; opacity: .8; }
+
+/* ---------- Página ---------- */
+.page {
+    position: relative;
+    width: 210mm; height: 297mm;
+    margin: 10mm auto;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 2px 14px rgba(0,0,0,.18);
+    page-break-after: always;
+    break-after: page;
+}
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+/* Etiqueta "Hoja N de T" (solo pantalla) */
+.hoja-num {
+    width: 210mm; margin: 18px auto 0; padding: 8px 14px; line-height: 1.3;
+    position: relative; z-index: 1;
+    background: #0f2f4d; color: #fff; border-radius: 6px 6px 0 0;
+    font: 14px "Segoe UI", Arial, sans-serif;
+}
+.hoja-num b { color: #7fc3f0; }
+.hoja-num + .page { margin-top: 0; }
+
+@media print {
+    body { background: #fff; }
+    .toolbar, .hoja-num { display: none !important; }
+    .page { margin: 0; box-shadow: none; }
+}
+
+/* ---------- Encabezado ---------- */
+.hd { position: absolute; inset: 0 0 auto 0; height: 20mm; }
+.hd .line {
+    position: absolute; left: 7.5mm; right: 13.5mm; top: 17.3mm;
+    height: 0; border-top: .32mm solid var(--brand);
+}
+.hd .stripes { position: absolute; left: 8mm; top: 14.6mm; height: 2.2mm; width: 12mm; }
+.hd .stripes i, .ft .stripes i {
+    position: absolute; top: 0; height: 100%;
+    transform: skewX(-38deg);
+}
+.hd .stripes i:nth-child(1) { left: 0;     width: 6.5mm; background: var(--stripe-grey); }
+.hd .stripes i:nth-child(2) { left: 6.2mm; width: 4.2mm; background: var(--brand); }
+
+.hd .logo { position: absolute; left: 117.6mm; top: 4.4mm; color: var(--brand); }
+.hd .svg-wordmark { display: block; width: 57mm; height: auto; }
+.hd .reg {
+    position: absolute; left: 56.6mm; top: -.6mm;
+    font: 2.2mm Arial, sans-serif; color: var(--sub-grey);
+}
+.hd .sas {
+    position: absolute; left: 60.3mm; top: 6.1mm; white-space: nowrap;
+    font: italic 800 3.55mm/1 "Montserrat", "Arial Black", Arial, sans-serif;
+    letter-spacing: .1mm; color: var(--brand);
+}
+.hd .sub { position: absolute; left: 118.8mm; top: 14.1mm; color: var(--sub-grey); }
+.hd .svg-subtitle { display: block; width: 56mm; height: auto; }
+
+/* ---------- Pie de página ---------- */
+.ft { position: absolute; left: 0; right: 0; top: 268.6mm; height: 20mm; }
+.ft .line {
+    position: absolute; left: 10mm; right: 15.5mm; top: .6mm;
+    border-top: .32mm solid var(--brand);
+}
+.ft .stripes { position: absolute; left: 184mm; top: 1mm; height: 2mm; width: 12mm; }
+.ft .stripes i:nth-child(1) { left: 0;     width: 4.6mm; background: var(--brand); }
+.ft .stripes i:nth-child(2) { left: 4.2mm; width: 5.2mm; background: var(--stripe-grey); }
+
+.ft .sedes {
+    position: absolute; left: 9.6mm; top: 3.1mm;
+    font: italic 2.95mm/3.55mm Arial, Helvetica, sans-serif;
+    color: var(--brand-dark); white-space: nowrap;
+}
+.ft .sedes b {
+    font: italic 800 2.95mm/3.55mm "Montserrat", "Arial Black", Arial, sans-serif;
+    letter-spacing: -.05mm;
+}
+.ft .wa { position: absolute; left: 123.1mm; top: 3.8mm; display: flex; align-items: center; gap: 1.8mm; }
+.ft .wa svg { width: 5.9mm; height: 5.9mm; }
+.ft .wa span {
+    font: italic 800 4.25mm/1 "Montserrat", "Arial Black", Arial, sans-serif;
+    color: var(--brand-dark); letter-spacing: .05mm;
+}
+.ft .social { position: absolute; left: 167.2mm; top: 3.8mm; display: flex; gap: .75mm; }
+.ft .social svg { width: 5.85mm; height: 5.85mm; display: block; }
+
+/* Mascota (águila) con baja opacidad sobre la línea del pie */
+.mascota {
+    position: absolute; left: 9.5mm; top: 254.5mm; width: 15mm;
+    color: var(--brand); opacity: .09;
+}
+.mascota svg { display: block; width: 100%; height: auto; }
+
+/* Área útil entre encabezado y pie */
+.body { position: absolute; left: 0; right: 0; top: 20mm; bottom: 30mm; }
+
+.toolbar .ic { vertical-align: -3px; margin-right: 2px; }

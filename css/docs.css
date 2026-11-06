@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Estilos de cada documento de la carpeta
+   ========================================================================== */
+
+/* ---------------- FICHA DE INSCRIPCIÓN ---------------- */
+.doc-ficha { font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif; }
+.ficha-titulo {
+    position: absolute; left: 31.6mm; top: 23mm; width: 97.4mm; height: 9.8mm;
+    border: .3mm solid #555; display: flex; align-items: center; justify-content: center;
+    font: 700 6.3mm/1 Calibri, Carlito, Arial, sans-serif; color: #555; letter-spacing: .1mm;
+}
+.ficha-foto {
+    position: absolute; left: 157.2mm; top: 19.6mm; width: 23.6mm; height: 30.6mm;
+    background: #f1f3f5; overflow: hidden;
+}
+.ficha-foto img, .ac-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ficha-tabla {
+    position: absolute; left: 31.9mm; top: 50.8mm; width: 149.9mm;
+    border-collapse: collapse; table-layout: fixed;
+}
+.ficha-tabla th, .ficha-tabla td {
+    border: .26mm solid #6b6b6b; height: 6.93mm; padding: 0 1.4mm 0 1.9mm;
+    font-size: 3.55mm; line-height: 1; vertical-align: bottom; padding-bottom: .9mm;
+    text-align: left; font-weight: 400; color: #333; white-space: nowrap; overflow: hidden;
+}
+.ficha-tabla th { width: 73.1mm; }
+.ficha-tabla td { color: #444; }
+.ficha-tabla tr.alta th, .ficha-tabla tr.alta td { height: 9.2mm; }
+.ficha-tabla tr.alta td { vertical-align: top; padding-top: 2.2mm; }
+.ficha-tabla tr.email td { color: #2f6db5; font-size: 4.1mm; }
+.ficha-tabla tr.asesor th, .ficha-tabla tr.asesor td { height: 8mm; }
+.ficha-tabla tr.firma th, .ficha-tabla tr.firma td { height: 18.6mm; vertical-align: middle; font-weight: 700; }
+
+/* ---------------- CÉDULAS ---------------- */
+.cedula-hoja {
+    position: absolute; left: 0; right: 0; top: 46.5mm;
+    display: flex; flex-direction: column; align-items: center; gap: 1.6mm;
+}
+.cedula-img { width: 92mm; height: auto; max-height: 76mm; object-fit: contain; display: block; }
+.cedula-vacia {
+    width: 92mm; height: 58mm; border: .4mm dashed #9aa7b1; border-radius: 3mm;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font: 700 4mm Arial, sans-serif; color: #8a98a3; text-align: center;
+}
+.cedula-vacia small { font-weight: 400; font-size: 3.2mm; margin-top: 1mm; }
+@media print { .cedula-vacia { border-color: #ddd; color: #ccc; } }
+
+/* ---------------- ACUERDO DE PRESTACIÓN ---------------- */
+.doc-acuerdo { font-family: "Roboto Condensed", "Arial Narrow", Arial, sans-serif; color: #333; }
+.ac-titulo {
+    position: absolute; left: 0; right: 0; top: 19.4mm; margin: 0; text-align: center;
+    font: 700 6.5mm/1 Arial, Helvetica, sans-serif; color: #3d8fcd; letter-spacing: .05mm;
+    transform: scaleX(.97);
+}
+.ac-box {
+    position: absolute; left: 13.7mm; width: 178.4mm;
+    border: .3mm solid #666; border-radius: 3.5mm;
+    padding: 0 2.6mm 0 2.6mm; background: #fff;
+}
+.ac-row { display: flex; align-items: flex-end; gap: .9mm; white-space: nowrap; }
+.ac-row b { font-weight: 700; font-size: 2.95mm; line-height: 1; padding-bottom: .5mm; letter-spacing: -.02mm; }
+.ac-row .it { font-family: Arial, sans-serif; font-style: italic; font-size: 2.9mm; padding-bottom: .5mm; }
+.ac-row .ml { margin-left: 1.4mm; }
+.ac-row .auto { margin-left: auto; }
+.ac-row.r1 { height: 6.3mm; }
+.ac-row.r2 { height: 6.1mm; }
+.ac-row.r3 { height: 6.38mm; }
+.ac-row.r4 { height: 6mm; }
+.ac-center { position: absolute; left: 76.7mm; top: 1.3mm; font-size: 3.05mm; }
+.ac-center b { font-size: 3.05mm; }
+.ln {
+    flex: 1; min-width: 4mm; border-bottom: .22mm dashed #8b8b8b;
+    font: 3.05mm/1 Arial, Helvetica, sans-serif; color: var(--fill-blue);
+    padding: 0 1mm .55mm 3mm; overflow: hidden; text-overflow: ellipsis;
+}
+.ln.email { padding-left: 8mm; }
+.bx {
+    display: inline-flex; align-items: center; justify-content: center; height: 5.4mm;
+    border: .22mm solid #8b8b8b; flex: none;
+    font: 3.05mm/1 Arial, Helvetica, sans-serif; color: var(--fill-blue); overflow: hidden;
+}
+.chk {
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+    width: 4.9mm; height: 4.9mm; border: .22mm solid #8b8b8b; margin: 0 .3mm;
+    font: 3.2mm/1 Arial, sans-serif; color: var(--fill-blue);
+}
+.ac-valores .ac-row b { font-size: 2.88mm; }
+.ac-row.nota b { font-size: 2.85mm; letter-spacing: -.03mm; }
+.ac-row .usd { margin-left: 3.5mm; }
+.ac-row .ln.val { flex: none; width: 25.5mm; padding-left: .6mm; }
+.ac-col-izq { width: 148.3mm; }
+.ac-foto {
+    position: absolute; right: 2.4mm; top: 9mm; width: 23.6mm; height: 30.6mm;
+    background: #f1f3f5; overflow: hidden;
+}
+.ac-final p {
+    margin: 2.2mm 0 0; font-weight: 700; font-size: 2.95mm; line-height: 1.32; letter-spacing: -.02mm;
+    white-space: normal;
+}
+.ac-firmas { display: flex; margin-top: 2.6mm; }
+.ac-firmas .izq { width: 102.5mm; border-right: .22mm dashed #8b8b8b; padding-right: 2mm; }
+.ac-firmas .der { flex: 1; padding-left: 2.4mm; position: relative; }
+.ac-firmas .dir { font-size: 2.85mm; line-height: 1.15; margin-top: .4mm; white-space: nowrap; }
+.ac-firmas .dir b { font-weight: 700; padding: 0; font-size: 2.85mm; letter-spacing: -.02mm; }
+.firma-linea { margin-top: 15mm; border-bottom: .22mm dashed #8b8b8b; }
+.firma-quien { display: block; text-align: right; padding-right: 20mm; font-size: 3.15mm; margin-top: .6mm; }
+
+/* ---------------- ACTA DE COMPROMISO ---------------- */
+.doc-acta { font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif; color: #2b2b2b; }
+.acta-body { position: absolute; left: 24.5mm; right: 22mm; top: 15mm; font-size: 3.88mm; line-height: 1.36; text-align: justify; }
+.acta-body h1 {
+    margin: 0 4mm 2.4mm; text-align: center; font-size: 3.95mm; line-height: 1.38; font-weight: 700; color: #3a3a3a;
+}
+.acta-body p { margin: 0 0 2.4mm; }
+.acta-body ol { margin: 0 0 4mm; padding-left: 5.4mm; }
+.acta-body li { padding-left: 1.2mm; margin-bottom: .4mm; }
+.acta-body li::marker { font-size: 3.88mm; }
+.acta-firma { font-family: Cambria, "Times New Roman", serif; }
+.acta-firma .fl { display: flex; align-items: flex-end; gap: 6mm; font-size: 3.6mm; line-height: 1.2; color: #444; }
+.acta-firma .fl span { width: 26mm; }
+.acta-firma .fl i { width: 76mm; border-bottom: .25mm solid #555; margin-bottom: 4.6mm; }
+.acta-firma .dt { font-family: Calibri, Carlito, Arial, sans-serif; font-size: 3.88mm; line-height: 1.5; margin-top: 0; }
+.acta-firma .fl + .dt { margin-top: 3mm; }
+
+/* ---------------- CONTRATO ---------------- */
+.doc-contrato { font-family: Arial, Helvetica, sans-serif; color: #333; }
+.ct-body {
+    position: absolute; left: 31.5mm; right: 34mm; top: 24mm;
+    font-size: 3.42mm; line-height: 1.24; text-align: justify;
+}
+.ct-body h1 { margin: 0 0 3.2mm; font-size: 3.75mm; line-height: 1.3; font-weight: 400; letter-spacing: .15mm; text-align: left; }
+.ct-body h2 { margin: 3.4mm 0 2.4mm; font-size: 3.65mm; font-weight: 700; letter-spacing: .1mm; text-align: left; }
+.ct-body h1 + h2 { margin-top: 0; }
+.ct-body p { margin: 0 0 1.6mm; }
+.ct-body p.ind { padding-left: 0; }
+.ct-body p.big { font-size: 3.85mm; line-height: 1.28; margin-bottom: 4mm; }
+.ct-body ol { margin: 0 0 1.2mm; padding-left: 5.4mm; }
+.ct-body ol > li { padding-left: 1.2mm; margin-bottom: .3mm; }
+.ct-body ul { margin: 0; padding-left: 0; list-style: none; }
+.ct-body ul li { position: relative; padding-left: 0; }
+.ct-body ul li::before { content: "○"; position: absolute; left: -6.4mm; font-size: 2.6mm; top: .25mm; }
+.ct-body .mono { font-family: "Courier New", monospace; font-size: 3.2mm; color: #777; }
+.ct-firmas { display: flex; justify-content: space-between; margin-top: 14mm; font-size: 3.6mm; line-height: 1.4; }
+.ct-firmas > div { width: 66mm; }
+.ct-firmas > div:last-child { width: 58mm; }
+.ct-firmas .raya { border-top: .25mm dashed #555; margin-bottom: 1mm; }
+.ct-firmas .raya.puntos { border-top-style: dotted; border-top-width: .35mm; }
+.ct-firmas .ced { font-size: 3.9mm; }
