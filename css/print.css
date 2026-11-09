@@ -82,10 +82,7 @@ body {
 
 .hd .logo { position: absolute; left: 117.6mm; top: 4.4mm; color: var(--brand); }
 .hd .svg-wordmark { display: block; width: 57mm; height: auto; }
-.hd .reg {
-    position: absolute; left: 56.6mm; top: -.6mm;
-    font: 2.2mm Arial, sans-serif; color: var(--sub-grey);
-}
+.hd .svg-reg { stroke: var(--sub-grey); }
 .hd .sas {
     position: absolute; left: 60.3mm; top: 6.1mm; white-space: nowrap;
     font: italic 800 3.55mm/1 "Montserrat", "Arial Black", Arial, sans-serif;
